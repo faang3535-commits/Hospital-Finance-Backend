@@ -58,7 +58,7 @@ export const addTransaction = async (req: any, res: any) => {
         const creator_id = req.user.id;
 
         const newTransaction = await Transaction.create({
-            file_no: patient_file_no,
+            file_no: patient_file_no, 
             patient_name: patient_name,
             payee_name: payee_name,
             amount,
