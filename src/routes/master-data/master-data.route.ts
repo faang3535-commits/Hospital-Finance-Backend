@@ -2,7 +2,7 @@ import {
     addCategory,
     addPaymentMethod,
     getMasterData
-} from "../../controller/master-data/masterDataController";
+} from "../../controller/master-data/masterData.Controller";
 const { checkRole } = require("../../middleware/permissionMiddleware");
 const express = require("express");
 const router = express.Router();

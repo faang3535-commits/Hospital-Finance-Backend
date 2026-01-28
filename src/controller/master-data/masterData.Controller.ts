@@ -21,11 +21,10 @@ export const addCategory = async (req: any, res: any) => {
             });
         }
 
-        // Auto-generate value (slug) from label
         const generatedValue = label
             .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '_') // Replace special chars and spaces with underscore
-            .replace(/^_+|_+$/g, '');    // Clean up underscores from ends
+            .replace(/[^a-z0-9]+/g, '_')
+            .replace(/^_+|_+$/g, '');
 
         const newCategory = await Category.create({
             value: generatedValue,
@@ -50,16 +49,24 @@ export const addCategory = async (req: any, res: any) => {
 
 export const addPaymentMethod = async (req: any, res: any) => {
     try {
-        const { label } = req.body;
+        const { label, type } = req.body;
 
-        if (!label) {
+        if (!label || !type) {
             return res.status(400).json({
                 status: false,
-                message: "Label is required"
+                message: "Label and type are required"
             });
         }
 
-        // Auto-generate value (slug) from label
+        const formattedType = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
+
+        if (formattedType !== "Income" && formattedType !== "Expense" && formattedType !== "Both") {
+            return res.status(400).json({
+                status: false,
+                message: "Type must be 'Income', 'Expense', or 'Both'"
+            });
+        }
+
         const generatedValue = label
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, '_')
@@ -68,6 +75,7 @@ export const addPaymentMethod = async (req: any, res: any) => {
         const newPaymentMethod = await PaymentMethod.create({
             value: generatedValue,
             name: label,
+            type: formattedType,
             status: 'active'
         });
 

@@ -1,4 +1,4 @@
-import { addTransaction, getTransactions } from "../../controller/transaction/transactionController";
+import { addTransaction, getTransactions } from "../../controller/transaction/transaction.Controller";
 const { checkRole } = require("../../middleware/permissionMiddleware");
 const express = require("express");
 const router = express.Router();

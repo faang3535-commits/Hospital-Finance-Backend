@@ -7,7 +7,7 @@ module.exports = {
     await queryInterface.bulkInsert('Users', [{
       name: 'Super Admin',
       email: 'superadmin@gmail.com',
-      password: '$2b$10$KhMvT6pkIIaFZRqeEmFpR.L5/Lh1xOnCeeK80M.q3rduG24SDXrPC',
+      password: '$2b$10$Qtdt78S9EvNLvbtBnDsoLeVHedDE1dFrEeU/7ZV2EWJIt41FS6j7y',
       role: 'SuperAdmin',
       created_at: new Date(),
       updated_at: new Date(),
@@ -15,7 +15,7 @@ module.exports = {
     {
       name: 'Admin',
       email: 'admin@gmail.com',
-      password: '$2b$10$YLEoUBFhIT1Ora0k2ybvJuadLCtLxz5kcZDZT/cqpAInsdIT2TmAy',
+      password: '$2b$10$8NtcCJJZR9vKHmQ/ANANQ..vHLRb3N5u1rRYJi769nL7sNFIokjaS',
       role: 'Admin',
       created_at: new Date(),
       updated_at: new Date(),

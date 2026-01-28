@@ -6,7 +6,7 @@ import  {
    userDelete,
    changeUserPassword,
    manageUser,
-} from "../../controller/user/userController";
+} from "../../controller/user/user.Controller";
 const { checkRole } = require("../../middleware/permissionMiddleware");
 const express = require("express")
 const router = express.Router();
